@@ -1,0 +1,32 @@
+姓名: 构建安装包
+
+在……之上:
+workflow_dispatch:
+推:
+分支机构: [主要的]
+
+工作:
+建立:
+连续的：Ubuntu-最新
+
+步骤:
+      - 姓名: 结帐
+uses: 操作/结帐@v4
+
+-姓名：设置JDK17
+用途：操作/设置-Java@v4
+和……一起:
+java版: 17
+分布: t鸸鹋苷
+
+-姓名: 授予gradlew的执行权限
+跑: chmod+x./gradlew
+
+-姓名: 构建调试安装包
+跑: ./gradlew装配调试
+
+-姓名: 上传安装包
+uses: 操作/上载工件@v4
+和……一起:
+姓名: app-debug-apk
+路径: app/build/outputs/apk/debug/app-debug.apk
