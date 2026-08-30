@@ -1,0 +1,34 @@
+姓名: 构建安卓安装包
+
+在……之上:
+推:
+分支机构: [主要的]
+workflow_dispatch:
+
+工作:
+建立:
+连续的: Ubuntu-最新
+步骤:
+      - 姓名: 签出代码
+uses: 操作/结帐@v4
+
+-姓名: 设置JDK17
+uses: 操作/设置-Java@v4
+和……一起:
+分布: temurin
+java版: '17'
+
+      - 姓名: 设置Android SDK
+uses: android-actions/setup-android@v3
+
+      - 姓名: 使gradlew可执行
+跑: chmod+x./gradlew
+
+      - 姓名: 构建调试安装包
+跑: ./gradlew清洁装配调试--无守护程序
+
+      - 姓名: 上传安装包
+uses: 操作/上载工件@v4
+和……一起:
+姓名: AIControl-debug-apk
+路径: app/build/outputs/apk/debug/app-debug.apk
