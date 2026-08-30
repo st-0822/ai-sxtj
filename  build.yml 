@@ -1,0 +1,34 @@
+名称：构建Android安装包
+
+在……之上:
+推：
+分支：[主要的]
+工作流程分派(_D)：
+
+工作:
+  建立:
+跑步次数-on:ubuntu-latest
+    步骤:
+-名称：结帐代码
+用途：操作/签出@V4
+
+-名称：设置JDK17
+用法：操作/设置-java@V4
+和……一起:
+分布：铁木素
+          爪哇-版本：'17'
+
+-名称：设置Android SDK
+用途：android-行动/设置-android@V3
+
+-名称：使gradlew可执行
+运行：chmod+x./gradlew
+
+-名称：生成调试安装包
+运行：./gradlew清洁装配调试--无守护程序
+
+-名称：上传安装包
+用法：操作/上载工件@V4
+和……一起:
+名称：AIControl-debug-apk
+路径：应用程序/建立/outputs/apk/debug/应用程序-debug.apk
